@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>User Portal</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="user.html">User</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+    <main>
+        <h2>Search Books</h2>
+
+        <input type="text" id="search" placeholder="Enter book name">
+        <button onclick="searchBook()">Search</button>
+
+        <ul id="books">
+            <li>HTML Basics</li>
+            <li>CSS Guide</li>
+            <li>JavaScript Programming</li>
+        </ul>
+
+        <p id="result"></p>
+    </main>
+
+    <script>
+        function searchBook() {
+            let name = document.getElementById("search").value.toLowerCase();
+            let books = document.querySelectorAll("#books li");
+            let found = false;
+
+            books.forEach(function(book) {
+                if (book.textContent.toLowerCase().includes(name) && name !== "") {
+                    found = true;
+                }
+            });
+
+            document.getElementById("result").textContent =
+                found ? "Book found!" : "Book not found.";
+        }
+    </script>
+</body>
+</html>

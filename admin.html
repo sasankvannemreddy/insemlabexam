@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Portal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Admin Portal</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="user.html">User</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+    <main>
+        <h2>Add a New Book</h2>
+
+        <input type="text" id="bookName" placeholder="Book Name">
+        <button onclick="addBook()">Add Book</button>
+
+        <h3>Book List</h3>
+        <ul id="bookList">
+            <li>HTML Basics</li>
+            <li>CSS Guide</li>
+        </ul>
+    </main>
+
+    <script>
+        function addBook() {
+            let name = document.getElementById("bookName").value.trim();
+
+            if (name !== "") {
+                let li = document.createElement("li");
+                li.textContent = name;
+                document.getElementById("bookList").appendChild(li);
+                document.getElementById("bookName").value = "";
+            } else {
+                alert("Please enter a book name");
+            }
+        }
+    </script>
+</body>
+</html>
